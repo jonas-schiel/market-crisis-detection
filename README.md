@@ -2,13 +2,13 @@
 
 ## Research Question:
 
-Can market crises be predicted before they happen?
+Can market crises be predicted before they happen? This project uses market data to predict whether the market will be in crisis 20 days from the current date.
 
-## Project Specs
+## Project Spec
 
 **Target Label:** Crisis Day (1), Normal Day (0)
 
-**Target Definition:** Crisis days are defined as days where the Volatility Index (VIX), closes at a value above 30. When looking at historical market data, a VIX close above 30 considerably unusual, and tends to align with significant global events, such as the 2008 housing market collapse, the 2010 flash crash, and the 2020 COVID-19 pandemic
+**Target Definition:** Crisis days are defined as days where the Volatility Index (VIX), closes at a value above 30. When looking at historical market data, a VIX close above 30 considerably unusual, and tends to align with significant global events, such as the 2008 housing market collapse, the 2010 flash crash, and the 2020 COVID-19 pandemic.
 
 **Data:** 
 - yfinance data ranging from 2005-2024
@@ -23,6 +23,7 @@ Gradient Boosting produced the best results, with a test accuracy of 97.8% (infl
 
 ## Repo Structure
 
+```
 project/
 ├── analysis/
 │   ├── models/
@@ -39,3 +40,4 @@ project/
     ├── 01_proposal.md
     ├── 02_eda.md
     └── 03_supervised.md
+```
