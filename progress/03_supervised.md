@@ -6,7 +6,7 @@ For my project, I wanted to determine if market data can be used to predict whet
 
 ## Supervised Models
 
-**1. Random Forests** 
+### 1. Random Forests \n
 **Hyperparameters:** 
 - n_estimators (50, 100, 150, 200)
 - max_depth (None, 5, 10, 15) 
@@ -25,7 +25,7 @@ For my project, I wanted to determine if market data can be used to predict whet
 
 ![RF plot](../analysis/visualizations/RF_ML/opt_smote_matrix_RF.png)
 
-**2. Logistic Regression**
+### 2. Logistic Regression \n
 **Hyperparameters**
 - Learning Rate (C) (0.01, 0.1, 1, 10, 100)
 - penalty (l1, l2)
@@ -44,7 +44,7 @@ For my project, I wanted to determine if market data can be used to predict whet
 
 ![LR plot](../analysis/visualizations/LR_ML/op_SMOTE_matrix_LR.png)
 
-**3. Gradient Boosting**
+### 3. Gradient Boosting \n
 **Hyperparameters**
 - learning_rate (0.01, 0.1, 0.2)
 - max_depth (3, 5, 10)
