@@ -2,7 +2,7 @@
 
 ## Research Question:
 
-Can market crises be predicted before they happen? This project uses market data to predict whether the market will be in crisis 20 days from the current date.
+Can a market crisis be predicted before it happens? This project uses market data to predict whether the market will be in crisis 20 days from the current date.
 
 ## Project Specs
 
