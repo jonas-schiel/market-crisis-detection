@@ -6,16 +6,19 @@ For my project, I wanted to determine if market data can be used to predict whet
 
 ## Supervised Models
 
-### 1. Random Forests \n
-**Hyperparameters:** 
+### 1. Random Forests 
+
+**Hyperparameters:**  
 - n_estimators (50, 100, 150, 200)
 - max_depth (None, 5, 10, 15) 
 - min_samples_leaf (1, 3, 5, 7)
-**Validation:** 
+
+**Validation:**  
 - Train-test split of 80/20
 - cross validation with 5 folds
 - OOB score
-**Performance Metrics:** 
+
+**Performance Metrics:**  
 - Chosen Parameters: max_depth None, min_samples_leaf 3, n_estimators 200
 - Majority Class F1-score: 0.98
 - Minority Class F1-score: 0.85
@@ -25,15 +28,18 @@ For my project, I wanted to determine if market data can be used to predict whet
 
 ![RF plot](../analysis/visualizations/RF_ML/opt_smote_matrix_RF.png)
 
-### 2. Logistic Regression \n
+### 2. Logistic Regression 
+
 **Hyperparameters**
 - Learning Rate (C) (0.01, 0.1, 1, 10, 100)
 - penalty (l1, l2)
 - solver (liblinear, saga)
+
 **Validation:** 
 - Train Test Split of 80/20
 - Precision-Recall Tradeoff
 - cross validation with 5 folds
+
 **Perfomance Metrics:** 
 - Chosen Parameters: C 0.1, penalty 'l1', solver 'saga'
 - Majority Class F1-score: 0.96
@@ -44,15 +50,18 @@ For my project, I wanted to determine if market data can be used to predict whet
 
 ![LR plot](../analysis/visualizations/LR_ML/op_SMOTE_matrix_LR.png)
 
-### 3. Gradient Boosting \n
+### 3. Gradient Boosting 
+
 **Hyperparameters**
 - learning_rate (0.01, 0.1, 0.2)
 - max_depth (3, 5, 10)
 - min_samples_leaf (3, 5)
 - n_estimators (100, 200)
+
 **Validation:** 
 - Train-test split of 80/20
 - cross validation with 5 folds
+
 **Perfomance Metrics:** 
 - Chosen Parameters: learning_rate 0.1, max_depth 10, min_samples_leaf 5, n_estimators 200
 - Majority Class F1-score: 0.99
