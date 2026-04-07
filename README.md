@@ -4,7 +4,7 @@
 
 Can market crises be predicted before they happen? This project uses market data to predict whether the market will be in crisis 20 days from the current date.
 
-## Project Spec
+## Project Specs
 
 **Target Label:** Crisis Day (1), Normal Day (0)
 
@@ -15,7 +15,11 @@ Can market crises be predicted before they happen? This project uses market data
 - Tickers used: SPY, QQQ, IWM, GLD, TLT, and ^VIX
 - See the data folder for more info
 
-**ML Methods Used:** Logistic Regression, Random Forest, Gradient Boosting, Isolation Forest
+**ML Methods Used:** 
+- Logistic Regression
+- Random Forest
+- Gradient Boosting
+- Isolation Forest
 
 ## Results
 
