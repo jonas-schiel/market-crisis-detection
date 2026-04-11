@@ -1,0 +1,32 @@
+name: Update Market Forecast
+
+on:
+  schedule:
+    - cron: '0 18 * * 1-5'  
+  workflow_dispatch:  
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install yfinance pandas matplotlib scikit-learn imbalanced-learn
+      
+      - name: Run forecast script
+        run: python analysis/generate_forecast.py
+      
+      - name: Commit and push updated plot
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add visualizations/forecast.png
+          git commit -m "Update market forecast $(date)"
+          git push
