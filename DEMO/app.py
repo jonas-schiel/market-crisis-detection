@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import pickle
 import yfinance as yf
 from datetime import datetime, timedelta
-from sklearn.calibration import CalibratedClassifierCV
 import os
 
 st.set_page_config(page_title="Market Crisis Detector", layout="wide")
@@ -26,8 +25,16 @@ def load_data():
     data['Date'] = pd.to_datetime(data['Date'])
     return data
 
+@st.cache_data
+def load_probs():
+    base = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(base, '..', 'analysis', 'models', 'best_mod', 'probs.npy')
+    return np.load(path)
+
+
 model = load_model()
 data = load_data()
+probs = load_probs()
 
 features = ['Vix', 'VIX_roll_10', 'VIX_roll_20', 'VIX_day_change', 'VIX_sd',
 'SPY_roll_10', 'SPY_roll_20', 'SPY_roll_60', 'SPY_day_return',
@@ -40,9 +47,6 @@ features = ['Vix', 'VIX_roll_10', 'VIX_roll_20', 'VIX_day_change', 'VIX_sd',
 y = data['market_crisis'].reset_index(drop=True)
 dates = data['Date'].reset_index(drop=True)
 
-calibrated_model = CalibratedClassifierCV(model, cv=5, method='isotonic')
-calibrated_model.fit(data[features].values, y)
-
 crisis_periods = [
     ("2007-10-01", "2009-03-31", "GFC"),
     ("2010-04-23", "2010-07-02", "Flash Crash"),
@@ -54,7 +58,7 @@ crisis_periods = [
 ]
 
 st.subheader("Predicted Crisis Probabilities (2005–2024)")
-probs = calibrated_model.predict_proba(data[features].values)[:, 1]
+
 smoothed = pd.Series(probs).rolling(window=10).mean().reset_index(drop=True)
 fig, ax = plt.subplots(figsize=(16, 5))
 ax.plot(dates, smoothed, color='steelblue', linewidth=1.2, label='Crisis Probability (10-day avg)')
