@@ -29,7 +29,7 @@ The Isolation Forest model demonstrated a reasonable ability to detect active ma
 
 ## StreamLit App Link: [here](https://market-crisis-detection.streamlit.app)
 
-![Anomaly vs. Market Crashes](../analysis/visualizations/IF_ML/reduced_anomalygraph.png)
+![Anomaly Detection vs. Market Crashes](/analysis/visualizations/IF_ML/reduced_anomalygraph.png)
 
 ## Repo Structure
 
